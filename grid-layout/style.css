@@ -1,0 +1,71 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #9df27c;
+}
+body{
+	display: grid; /*iniciando o grid*/
+	grid-template-columns: 3fr 1fr; /*estou "fatiando a minha tela em duas colunas (fr) e dizendo que a primeira coluna vai ocupar 2 espaços, e a segunda apenas 1"*/
+	grid-template-rows:20vh 70vh 10vh ; /*como temos 3 rows, e estou definindo o tamanho de cada uma*/
+
+	/* Podemos dar espaçamento entre colunas e linhas com o GAP
+
+	grid-gap: 20px; o gap vai dar espaçamento entre os itens do seu grid
+
+	grid-row-gap: 20px; Como o grid gap é só um atalho para os comandos "grid-row-gap" e "grid-columns-gap"
+
+	grid-column-gap: 20px; estou mostrando os dois para deixar claro que é possivel dar um espaçamento especifico
+	*/
+	
+	/*essa é uma propriedade que basicamente é um atalho para todos os comandos de Grid-colum, grid-rows,*/
+	grid-template-areas: "primeira primeira" /*o header para todo o começo*/
+						"segunda lateral"
+						 /*main e aside para o meio da tela*/
+						"ultima ultima" /*footer para todo o rodapé da pagina*/
+}
+header{
+	background-color: #47f5e6;
+	width: 100%;
+
+	/*Estilizando Grid-columns especifico do header (Lembrando que parti a minha tela em 3 colunas)*/
+
+	grid-column:1/3; /*Definindo que o header vai ocupar todo espaço de cima da tela, ultizando do sistema de contagem de linhas e colunas do GRID*/
+
+	grid-area: primeira; /*isto é para usa-lo no 'grid-template-areas'*/
+}
+main{
+	background: #7159c1;
+
+	width: 100%;
+
+	/*Estilizando Grid-columns especifico do main (Lembrando que parti a minha tela em 3 colunas)*/	
+
+	grid-column-start: 1; /*Definindo que o main vai ocupar duas colunas da tela, começando no 1(esquerda) e terminando antes do aside que fica ao final(direita)*/
+	grid-column-end: 2; /*a cima no header ultilizei o atalho de comando e nesse ultilizei do comando inteiro*/
+
+	grid-area: segunda; /*isto é para usa-lo no 'grid-template-areas'*/
+}
+aside{
+	background: #f2665e;
+
+	width: 100%;
+
+	/*Estilizando o grid especifico do aside (Lembrando que parti a minha tela em 3 colunas)*/
+
+	grid-column: 2/3; /*definindo que o aside vai começar ao termino do main, começando no final da segunda coluna e terminando na terceira, usei o short cut(atalho) para definir.*/
+
+	grid-area: lateral; /*isto é para usa-lo no 'grid-template-areas'*/
+}
+footer{
+	background:#f4fa50;
+
+	width: 100%;
+
+	/*Estilizando Grid-columns especifico do header (Lembrando que parti a minha tela em 3 colunas)*/
+
+	grid-column-start: 1;
+	grid-column-end: 3; /*Definindo que o footer vai ocupar todo espaço de baixo da tela.*/
+
+	grid-area: ultima; /*isto é para usa-lo no 'grid-template-areas'*/
+}
